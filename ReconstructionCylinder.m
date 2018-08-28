@@ -3,7 +3,7 @@
 
 clear all; close all; clc
 
-cyl = load('ALL.mat');
+cyl = load('CYLINDER_ALL.mat');
 
 Z = cyl.VORTALL;
 m = cyl.m;
