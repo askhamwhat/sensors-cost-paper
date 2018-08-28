@@ -26,7 +26,12 @@ For reproducibility, we have included here the
 codes used to generate most of the figures in the
 preprint. These codes take a very long time to run
 (especially using the pure matlab implementation
-of the code, see below).
+of the code, see below). If you would like to run
+them more quickly but less accurately, reduce LCV
+(the number of cross validations) in Reconstruction*.m.
+You can also reduce the number of elements in p and
+Gamma for additional speed-ups, but this may affect
+the plotting.
 
 ### Obtaining the data
 
@@ -41,13 +46,15 @@ Yale faces data with
 
 #### Sea Surface Temperature
 
-This data is hosted by NOAA. ADD DETAILS
+This data is hosted by NOAA [here](https://www.esrl.noaa.gov/psd/data/gridded/data.noaa.oisst.v2.html).
+Download sst.wkmean.1990-present.nc and lsmask.nc.
 
 #### Cylinder flow
 
 This data is included with the companion to the
 Dynamic Mode Decomposition book [here](http://dmdbook.com/).
-ADD DETAILS
+Download DATA.zip (note that this file is 417 MB). The
+fluid flow data can be found in DATA\FLUIDS\CYLINDER_ALL.mat.
 
 ## Faster Option With MEX
 
