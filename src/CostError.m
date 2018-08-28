@@ -55,7 +55,13 @@ for j = 1:Lp % Loop over number of sensors
             Psi = X*Arand;
             
             % Obtain sensor locations
-            [~,~,Ind] = qrpc(Psi',Gamma*f);
+            if exist('xqrmc_m','file')==3
+                [~,Ind,~] = xqrmc_m(Psi.',Gamma*f);
+                %Ind(1:p)
+            else
+                [~,~,Ind] = qrpc(Psi.',Gamma*f);
+                %Ind(1:p)
+            end
             Ind = Ind(1:p);
             
             % Obtain cost, reconstruction error, and sensor placements

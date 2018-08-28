@@ -19,22 +19,4 @@ function Error = recon(Psi,Y,ind)
 % Copyright Emily Clark 2017
 % Available freely under the MIT License
 
-[n,m] = size(Y);
-
-theta = Psi(ind,:);
-theta_inv = pinv(theta);
-
-E = zeros(1,m);
-for j = 1:m
-    ytrue = Y(:,j);
-    ysparse = ytrue(ind);
-    
-    % Reconstruct the snapshot
-    s = theta_inv*ysparse;
-    yrecon = Psi*s;
-    
-    % Calculate the error
-    E(j) = norm(abs(yrecon - ytrue))/norm(ytrue);
-end
-
-Error = mean(E);
+Error = norm(Y - (Psi/Psi(ind,:))*Y(ind,:),'fro')/norm(Y,'fro');
