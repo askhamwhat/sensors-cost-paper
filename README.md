@@ -57,7 +57,11 @@ with standard gnu compilers. These faster codes are
 basically unsupported for now but worth a shot.
 
 These can be compiled by changing directory to
-the src directory and running build_xqrmc_m
+the src directory and running build_xqrmc_m.
+The success of this step will likely be the make-or-break
+point, but if you have some experience with
+MEX files you could try messing with the flags in
+build_xqrmc_m
 
 Be sure to then test the code with test_xqrmc_m.
 If a zero is output, things should be good.
