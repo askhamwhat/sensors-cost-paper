@@ -6,6 +6,9 @@ to the paper "Greedy Sensor Placement With Cost Constraints"
 
 ## How to use
 
+To start, be sure to add the src directory to your
+MATLAB path.
+
 The code takes in samples of data as the rows of
 a matrix (so that columns correspond to sensor
 locations) and a vector representing the costs
@@ -59,5 +62,7 @@ the src directory and running build_xqrmc_m
 Be sure to then test the code with test_xqrmc_m.
 If a zero is output, things should be good.
 
+The CostError function will automatically use the
+MEX version if it exists.
 If you find that this has broken everything, simply
 delete the MEX binary to restore the slower operation.
