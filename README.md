@@ -60,15 +60,14 @@ fluid flow data can be found in DATA\FLUIDS\CYLINDER_ALL.mat.
 
 We've included a MEX wrapper to a FORTRAN routine.
 The codes seem to compile and run well on UNIX systems
-with standard gnu compilers. These faster codes are
-basically unsupported for now but worth a shot.
+with standard gnu compilers. 
 
 These can be compiled by changing directory to
-the src directory and running build_xqrmc_m.
+the src directory and running build_xqrmc_m and build_xormqr_m.
 The success of this step will likely be the make-or-break
 point, but if you have some experience with
 MEX files you could try messing with the flags in
-build_xqrmc_m
+build_xqrmc_m and build_xormqr_m
 
 Be sure to then test the code with test_xqrmc_m.
 If a zero is output, things should be good.
@@ -77,3 +76,12 @@ The CostError function will automatically use the
 MEX version if it exists.
 If you find that this has broken everything, simply
 delete the MEX binary to restore the slower operation.
+
+Note that xormqr_m is only used to access the Householder
+reflectors stored in the output. It is possible to find
+the sensor locations without this routine.
+
+## Documentation
+
+Documentation for many of these files can be accessed by
+typing help [function or script name] in MATLAB.
