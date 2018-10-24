@@ -1,4 +1,4 @@
-function [QH,R,p] = qrpc(A,c)
+function [QH,R,p] = qrpc(A,c,varargin)
 %QRPC QR decomposition with pivoting and a cost function
 %
 % Input:
@@ -29,10 +29,11 @@ function [QH,R,p] = qrpc(A,c)
 %
 %   >> [QH,R,p] = qrpc(A,c);
 %
+% See also QRPC_APPLY
+
 % Copyright Travis Askham 2017
 % Available freely under the MIT License
-%
-% See also QRPC_APPLY
+
 
 [m,n] = size(A);
 
@@ -46,7 +47,12 @@ QH = zeros(m,n);
 R = A;
 p = 1:n;
 
-for j = 1:min(m,n)
+k = min(m,n);
+if nargin > 2
+    k = varargin{1};
+end
+
+for j = 1:k
     [u,ipiv] = qrpc_reflector(R(j:m,j:n),c(p(j:n)));
     % track column pivots
     ipiv = ipiv+j-1;

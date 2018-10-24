@@ -1,4 +1,4 @@
-function [Cost,Error,A,stdC,stdE] = CostError(Z,f,Gamma2,p2,r,LCV)
+function [Cost,Error,A,stdC,stdE,varargout] = CostError(Z,f,Gamma2,p2,r,LCV,varargin)
 % Calculate sensor placement cost and error with a cost function.
 % 
 % Input:
@@ -37,6 +37,7 @@ Lp = length(p2);
 Error = zeros(Lgamma,Lp); Cost = zeros(Lgamma,Lp);
 stdE = zeros(Lgamma,Lp); stdC = zeros(Lgamma,Lp);
 A = zeros(N,Lgamma,Lp);
+times = zeros(Lp,1);
 
 for j = 1:Lp % Loop over number of sensors
     tic
@@ -56,10 +57,10 @@ for j = 1:Lp % Loop over number of sensors
             
             % Obtain sensor locations
             if exist('xqrmc_m','file')==3
-                [~,Ind,~] = xqrmc_m(Psi.',Gamma*f);
+                [~,Ind,~] = xqrmc_m(Psi.',Gamma*f,p);
                 %Ind(1:p)
             else
-                [~,~,Ind] = qrpc(Psi.',Gamma*f);
+                [~,~,Ind] = qrpc(Psi.',Gamma*f,p);
                 %Ind(1:p)
             end
             Ind = Ind(1:p);
@@ -79,7 +80,9 @@ for j = 1:Lp % Loop over number of sensors
         A(:,k,j) = mean(A2,2);
         
     end
-    toc
+    times(j) = toc;
 end
+
+varargout{1} = times;
 
 

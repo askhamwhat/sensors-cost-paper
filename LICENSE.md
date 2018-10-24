@@ -1,3 +1,10 @@
+# License information for this repository
+
+## General
+
+Unless otherwise noted, files in this repository are
+subject to the permissive MIT License
+
 MIT License
 
 Copyright (c) 2018 Travis Askham, Emily Clark
@@ -19,3 +26,25 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+## Specific
+
+### src/xqrmc_m.F
+
+This file is a derivative of LAPACK routines and is
+thus subject to a free BSD type (3 clause) license, see
+file for details.
+
+Copyright (c) 1992-2013 The University of Tennessee and The University
+                         of Tennessee Research Foundation.  All rights
+                         reserved.
+Copyright (c) 2000-2013 The University of California Berkeley. All
+                         rights reserved.
+Copyright (c) 2006-2013 The University of Colorado Denver.  All rights
+                         reserved.
+
+
+### src/unfreezeColors.m
+
+This file is authored by John Iversen, who has released
+copyright.
